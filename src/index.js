@@ -7,6 +7,9 @@ const handlebars = require("express-handlebars");
 const app = express();
 const port = 3000;
 
+// Check folder default for file static will be into public folder
+app.use(express.static(path.join(__dirname, 'public'))) // === localhost:3000/public
+
 // HTTP logger
 app.use(morgan("combined"));
 
