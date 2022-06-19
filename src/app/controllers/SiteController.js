@@ -1,14 +1,20 @@
+const Course = require('../models/Course');
+
 class SiteController {
   // [GET] /
   index(req, res) {
-    res.render("home");
+    Course.find({}, (err, courses) => {
+      if (!err) res.json(courses);
+      else res.status(400).json({ error: err });
+    });
+    //res.render('home');
   }
 
   // [GET] /search
   search(req, res) {
-    res.render("search")
+    res.render('search');
   }
 }
 
 // Khởi tạo đối tượng
-module.exports = new SiteController;
+module.exports = new SiteController();

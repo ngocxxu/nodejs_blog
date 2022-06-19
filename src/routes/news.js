@@ -4,8 +4,8 @@ const router = express.Router();
 const newsController = require("../app/controllers/NewsController");
 
 // Route is read from top to bottom
-router.use("/:id", newsController.show);
+router.get("/:id", newsController.show);
 
-router.use("/", newsController.index);
+router.get("/", newsController.index);
 
 module.exports = router;
